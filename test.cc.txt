@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+ int start, end;
+cout << "Введите начало диапазона: " ;
+cin >> start >> end;
+if (start > end) {
+ cout << "Ошибка: начало диапазона не может быть больше конца" << endl;
+ return 1;
+}
+vector<int> fibonacciNumbers;
+int a = 0, b = 1;
+if (a >= start && a <= end) {
+ fibonacciNumbers.push_back(a);
+}
+while (b <= end) { 
+ if (b >= start) {
+  fibonacciNumbers.push_back(b);
+ }
+ int next = a + b;
+ a = b;
+ b = next;
+}
+if (fibonacciNumbers.empty()) {
+   cout << "В диапазоне [" << start << ", " << end << "] нет чисел Фибоначчи." << endl;
+} else {
+  cout << "Числа Фибоначчи в диапазоне[" << start << ", " << end << "]:" << endl;
+for (int num : fibonacciNumbers) {
+  cout << num << " " ;
+  }
+  cout << endl;
+ }
+ return 0;
+}
